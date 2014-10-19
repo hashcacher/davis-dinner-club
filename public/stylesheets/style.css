@@ -9,3 +9,47 @@
 	background-color: #FFF;
 	padding: 10px;
 }
+
+.featurette-heading {
+	font-weight: bold !important;
+}
+
+.text-muted {
+	font-weight: normal !important;
+}
+
+.img-rounded {
+	overflow: hidden;
+	border-radius: 64px;
+	-webkit-border-radius: 64px;
+	-moz-border-radius: 64px;
+}
+
+.recipe-container {
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.recipe-container img {
+	height: auto;
+}
+
+.recipe-img-caption {
+	position: absolute;
+	bottom: 0px;
+	border: 1px solid #000;
+	opacity: .8;
+	background-color: #000;
+	overflow: hidden;
+	width: 100%;
+}
+
+.recipe-img-caption-inner {
+	text-align: center;
+	color: #FFF;
+	padding: 32px;
+	font-size: 24px;
+	font-family: "Abel", sans-serif;
+}
