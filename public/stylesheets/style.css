@@ -1,8 +1,11 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+#Crew {
+	padding-top: 40px;
 }
 
-a {
-  color: #00B7FF;
+#ToTop {
+	position: fixed;
+	bottom: 0px;
+	right: 40px;
+	background-color: #FFF;
+	padding: 10px;
 }
