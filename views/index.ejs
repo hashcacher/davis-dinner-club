@@ -13,7 +13,7 @@
     <!-- Bootstrap core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
+    <script src="/javascripts/mobilejquery.js"></script>
 
     <!-- scroll down code -->
 
@@ -24,7 +24,7 @@
 <!-- NAVBAR
 ================================================== -->
   <body>
-        <script> 
+    <script> 
     $( '.searchbychar' ).on('click', function(event) {
       event.preventDefault();
       var target = "#" + $(this).data('target');
@@ -32,6 +32,14 @@
           scrollTop: $(target).offset().top
       }, 2000);
     });
+    $(document).ready(function() {  
+         $("#myCarousel").swiperight(function() {  
+            $(this).carousel('prev');  
+            });  
+         $("#myCarousel").swipeleft(function() {  
+            $(this).carousel('next');  
+       });  
+    });  
     </script>
     <div class="navbar-wrapper">
       <div class="container">
