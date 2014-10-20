@@ -5,11 +5,26 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var oauth2 = require('./calendarapi/oauth2.js');
+
 var routes = require('./routes/index');
 var reservation = require('./routes/reservation');
 var users = require('./routes/users');
 
 var app = express();
+
+app.get('/oauth2callback', function(req, res) {
+  var code = req.query.code;
+  console.log(code);
+  oauth2.client.getToken(code, function(err, tokens){
+    console.log(tokens);
+  });
+  var locals = {
+        title: 'Dunno what Im doing?',
+        url: oauth2.url //?
+      };
+  res.render('index.ejs', locals); //or something
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
