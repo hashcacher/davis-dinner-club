@@ -18,12 +18,10 @@ app.get('/oauth2callback', function(req, res) {
   console.log(code);
   oauth2.client.getToken(code, function(err, tokens){
     console.log(tokens);
+    oauth2.client.setCredentials(tokens);
+    // var token = tokens["access_token"];
   });
-  var locals = {
-        title: 'Dunno what Im doing?',
-        url: oauth2.url //?
-      };
-  res.render('index.ejs', locals); //or something
+  res.render('index', { title: 'Davis Dinner Club' });
 });
 
 // view engine setup
@@ -31,7 +29,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -41,6 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/reservation', reservation);
+app.use('/oauth2callback', routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -75,3 +74,4 @@ app.use(function(err, req, res, next) {
 
 
 module.exports = app;
+module.exports.calendar = oauth2.calendar;

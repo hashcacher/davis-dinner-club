@@ -44,12 +44,19 @@
         </div>
     </div>
 
-
+    <% events.forEach( function( event ){ %>
 	<div class="jumbotron">
-	  <h1>Event 1!</h1>
-	  <p>...</p>
-	  <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>
+	  <h1><%= event.title %></h1>
+	  <p><%= event.price %>, <time datetime="<%= event.time %>"></p>
+      <p><%= event.filled %>/<%= event.max %></p>
+
+      <% event.menu.forEach( function( item ){ %>
+        <p><%= item %></p><br>
+      <% }); %>
+      
+	  <p><a class="btn btn-primary btn-lg" role="button">I wanna go</a></p>
 	</div>
+    <% }); %>
 
 
 </body></html>
